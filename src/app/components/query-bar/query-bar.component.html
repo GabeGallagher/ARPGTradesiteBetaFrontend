@@ -1,27 +1,40 @@
 <div>
-    <h1>Basics</h1>
-    <div>Name</div>
-    <div>Type</div>
-    <select>
-        <option value="">Any</option>
-        <option value="Weapon">Weapon</option>
-        <option value="Helm">Helm</option>
-        <option value="Chest">Chest</option>
-        <option value="Belt">Belt</option>
-        <option value="Ring">Ring</option>
-        <option value="Gloves">Gloves</option>
-        <option value="Boots">Boots</option>
-        <option value="Off-Hand">Off-Hand</option>
-        <option value="Amulet">Amulet</option>
-    </select>
-    <div>Rarity</div>
-    <select>
-        <option value="">Any</option>
-        <option value="Normal">Normal</option>
-        <option value="Uncommon">Uncommon</option>
-        <option value="Rare">Rare</option>
-        <option value="Legendary">Legendary</option>
-    </select>
-    <div>Price</div>
-    <div>Date Posted</div>
+  <h1>Basics</h1>
+  <div>Name</div>
+  <input
+    type="text"
+    [(ngModel)]="query.name"
+    name="item-name"
+    placeholder="Name"
+  />
+  <div>Type</div>
+  <select [(ngModel)]="query.type">
+    <option *ngFor="let type of itemTypes" [value]="type === 'Any' ? '' : type">
+      {{ type }}
+    </option>
+  </select>
+
+  <div>Rarity</div>
+  <select [(ngModel)]="query.rarity">
+    <option
+      *ngFor="let rarity of rarities"
+      [value]="rarity === 'Any' ? '' : rarity"
+    >
+      {{ rarity }}
+    </option>
+  </select>
+
+  <div>Price</div>
+  <input type="text" name="item-price" placeholder="Price" />
+
+  <div>Date Posted</div>
+  <select [(ngModel)]="query.datePosted">
+    <option
+      *ngFor="let datePosted of datesPosted"
+      [value]="datePosted === 'Any' ? '' : datePosted"
+    >
+      {{ datePosted }}
+    </option>
+  </select>
+  <button type="button" (click)="onSearch()">Search</button>
 </div>
