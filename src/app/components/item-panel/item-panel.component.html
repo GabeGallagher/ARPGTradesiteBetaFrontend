@@ -1,3 +1,8 @@
 <div>
     <h3>{{item.name}}</h3>
+    <div>Posted on: {{formatDate(item.postedDate)}} </div>
+    <div> {{getTimeSincePost(item.postedDate)}} </div>
+    <div> {{item.price}} </div>
+    <div>Rarity: {{getRarity(item.rarity)}} </div>
+    <div>Item Type: {{getItemType(item.type)}} </div>
 </div>
