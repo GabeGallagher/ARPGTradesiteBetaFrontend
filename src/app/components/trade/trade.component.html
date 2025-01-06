@@ -1,5 +1,10 @@
-<p>trade works!</p>
-
 <div>
-    <app-query-bar></app-query-bar>
+    <app-query-bar (searchSubmitted)="handleSearch($event)"></app-query-bar>
+    <div class="item-panel-container" *ngIf="items.length">
+        <app-item-panel 
+            *ngFor="let item of items"
+            [item]="item"
+        >
+        </app-item-panel>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ItemQuery } from '../../interfaces/item.interface';
+import { ItemQuery } from '../../interfaces/item-query.interface';
 
 @Component({
   selector: 'app-query-bar',
@@ -10,7 +10,6 @@ import { ItemQuery } from '../../interfaces/item.interface';
   templateUrl: './query-bar.component.html',
   styleUrl: './query-bar.component.css',
 })
-
 export class QueryBarComponent {
   query: ItemQuery = {};
 
@@ -37,7 +36,7 @@ export class QueryBarComponent {
         ([_, value]) => value !== '' && value != null
       )
     );
-    this.searchSubmitted.emit(searchQuery);
+    this.searchSubmitted.emit(searchQuery as ItemQuery);
     console.log(`Searching query: ${searchQuery.toString()}`);
   }
 }
